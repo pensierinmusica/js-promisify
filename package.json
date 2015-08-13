@@ -1,0 +1,36 @@
+{
+  "name": "js-promisify",
+  "version": "0.0.0",
+  "description": "A simple utility to convert NodeJS async functions to native JS promises.",
+  "main": "js-promisify.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pensierinmusica/js-promisify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pensierinmusica/js-promisify/issues"
+  },
+  "homepage": "https://github.com/pensierinmusica/js-promisify",
+  "scripts": {
+    "test": "mocha",
+    "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha"
+  },
+  "keywords": [
+    "promise",
+    "promises",
+    "es6",
+    "javascript",
+    "Node",
+    "async"
+  ],
+  "author": "Alessandro Zanardi",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "chai-as-promised": "^5.1.0",
+    "coveralls": "^2.11.4",
+    "istanbul": "^0.3.17",
+    "mocha": "^2.2.5",
+    "rimraf": "^2.4.2"
+  }
+}
