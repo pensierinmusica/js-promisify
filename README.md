@@ -20,11 +20,12 @@ For example, it can be used to convert the NodeJS native [file system library](h
 ## Usage
 
 ```js
-promisify(fun, args)
+promisify(fun, args, [self])
 ```
 
 - `fun` can be any function with a callback argument that follows the Node JS async function pattern signature (i.e. the callback is the last argument and has a signature `function(err, data)`).
 - `args` is an array containing all the arguments that need to be passed to `fun`, excluding the callback.
+- `self` (optional) is what the variable `this` should be bound to when `fun` is called with the arguments provided through the `args` array.
 
 ##### Example
 ```js

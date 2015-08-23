@@ -7,7 +7,7 @@ var fs = require('fs');
 var path = require('path');
 var rimraf = require('rimraf');
 
-var promisify = require('../js-promisify.js');
+var promisify = require('..');
 
 chai.use(chaiAsPromised);
 
@@ -40,6 +40,18 @@ describe('js-promisify', function () {
           return promisify(fs.readFile, [filePath, {encoding: 'utf8'}])
             .should.eventually.equal('Hello world!');
         });
+    });
+
+    it('should correctly bind the "this" variable', function (done) {
+      function testThis (args, cb) {
+        if (this === 'hello') {
+          cb(null, true);
+        } else {
+          cb(null, false);
+        }
+      }
+      return promisify(testThis, [''], 'hello')
+        .should.eventually.equal(true).notify(done);
     });
 
   });
