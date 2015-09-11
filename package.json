@@ -25,6 +25,9 @@
   ],
   "author": "Alessandro Zanardi",
   "license": "MIT",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "devDependencies": {
     "chai": "^3.2.0",
     "chai-as-promised": "^5.1.0",

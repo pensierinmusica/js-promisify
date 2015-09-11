@@ -6,7 +6,7 @@
 
 ## Introduction
 
-JS Promisify is a [npm](http://npmjs.org) minimal and well-tested async module for [NodeJS](http://nodejs.org/), that **converts NodeJS async style functions to [native JS promises](http://www.html5rocks.com/en/tutorials/es6/promises/)** (if they're supported by the underlying JavaScript engine).
+JS Promisify is a [npm](http://npmjs.org) minimal and well-tested async module for [NodeJS](http://nodejs.org/), that **converts NodeJS async style functions to [native JS promises](http://www.html5rocks.com/en/tutorials/es6/promises/)** (if they're supported by the underlying JavaScript engine, like in Node >= 4.0.0).
 
 For example, it can be used to convert the NodeJS native [file system library](https://nodejs.org/api/fs.html) (`fs`), to easily perform file operations with promises.
 
