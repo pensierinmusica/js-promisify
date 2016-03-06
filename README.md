@@ -29,7 +29,7 @@ promisify(fun, args, [self])
 
 ##### Example
 ```js
-var promisify = require(js-promisify);
+var promisify = require('js-promisify');
 var fs = require('fs');
 
 promisify(fs.readFile, ['path/to/myfile.txt', {encoding: 'utf8'}])
