@@ -1,20 +1,19 @@
 {
   "name": "js-promisify",
-  "version": "1.1.0",
   "description": "A simple utility to convert NodeJS async functions to native JS promises.",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pensierinmusica/js-promisify.git"
-  },
-  "bugs": {
-    "url": "https://github.com/pensierinmusica/js-promisify/issues"
-  },
-  "homepage": "https://github.com/pensierinmusica/js-promisify",
   "scripts": {
     "test": "mocha",
     "test-travis": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pensierinmusica/js-promisify.git"
+  },
+  "homepage": "https://github.com/pensierinmusica/js-promisify",
+  "bugs": {
+    "url": "https://github.com/pensierinmusica/js-promisify/issues"
   },
   "keywords": [
     "promise",
@@ -29,10 +28,20 @@
   "engines": {
     "node": ">=4.0.0"
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "mocha"
+    }
+  },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^5.2.0",
     "coveralls": "^2.11.8",
+    "cz-conventional-changelog": "^1.1.5",
+    "ghooks": "^1.0.3",
     "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
     "rimraf": "^2.5.2",
