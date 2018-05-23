@@ -1,6 +1,7 @@
 # JS Promisify
 
 [![Travis](https://img.shields.io/travis/pensierinmusica/js-promisify.svg)](https://travis-ci.com/pensierinmusica/js-promisify)
+[![Coveralls](https://img.shields.io/coveralls/pensierinmusica/js-promisify.svg)](https://coveralls.io/r/pensierinmusica/js-promisify)
 [![David](https://img.shields.io/david/pensierinmusica/js-promisify.svg)](https://www.npmjs.com/package/js-promisify)
 [![npm](https://img.shields.io/npm/v/js-promisify.svg)](https://www.npmjs.com/package/js-promisify)
 
