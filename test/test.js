@@ -1,57 +1,45 @@
 'use strict';
 
-var chai = require('chai');
-var chaiAsPromised = require("chai-as-promised");
-var should = require('chai').should();
-var fs = require('fs');
-var path = require('path');
-var rimraf = require('rimraf');
+const chai = require('chai');
+const chaiAsPromised = require('chai-as-promised');
+const fs = require('fs');
+const path = require('path');
+const rimraf = require('rimraf');
 
-var promisify = require('..');
+const promisify = require('..');
 
+chai.should();
 chai.use(chaiAsPromised);
 
-describe('js-promisify', function () {
+describe('js-promisify', () => {
 
-  var dirPath = path.join(__dirname, 'tmp/');
-  var filePath = dirPath + 'test.txt';
-  var wrongFilePath = dirPath + 'no-test.txt';
+  const dirPath = path.join(__dirname, 'tmp/');
+  const filePath = dirPath + 'test.txt';
+  const wrongFilePath = dirPath + 'no-test.txt';
 
-  before(function () {
-    // Make "tmp" folder
-    fs.mkdirSync(dirPath);
-  });
+  before(() => fs.mkdirSync(dirPath)); // Make "tmp" folder
 
-  after(function () {
-    // Delete "tmp" folder
-    rimraf.sync(dirPath);
-  });
+  after(() => rimraf.sync(dirPath)); // Delete "tmp" folder
 
-  describe('#promisify', function () {
+  describe('#promisify', () => {
 
-    it('should reject if callback has err', function () {
-      return promisify(fs.readFile, [wrongFilePath, {encoding: 'utf8'}])
-        .should.be.rejected;
-    });
+    it(
+      'should reject if callback has err',
+      () => promisify(fs.readFile, [wrongFilePath, {encoding: 'utf8'}]).should.be.rejected
+    );
 
-    it('should succeed if callback returns correctly', function () {
-      return promisify(fs.writeFile, [filePath, 'Hello world!'])
-        .then(function () {
-          return promisify(fs.readFile, [filePath, {encoding: 'utf8'}])
-            .should.eventually.equal('Hello world!');
-        });
-    });
+    it(
+      'should succeed if callback returns correctly',
+      () => promisify(fs.writeFile, [filePath, 'Hello world!'])
+        .then(() => promisify(fs.readFile, [filePath, {encoding: 'utf8'}]).should.eventually.equal('Hello world!'))
+    );
 
-    it('should correctly bind the "this" variable', function (done) {
+    it('should correctly bind the "this" variable', () => {
       function testThis (args, cb) {
-        if (this === 'hello') {
-          cb(null, true);
-        } else {
-          cb(null, false);
-        }
+        if (this === 'hello') cb(null, true);
+        else cb(null, false);
       }
-      return promisify(testThis, [''], 'hello')
-        .should.eventually.equal(true).notify(done);
+      return promisify(testThis, [''], 'hello').should.eventually.equal(true);
     });
 
   });

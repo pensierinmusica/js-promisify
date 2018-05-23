@@ -1,11 +1,11 @@
 'use strict';
 
-module.exports = function (fun, args, self) {
-  return new Promise(function (resolve, reject) {
-    args.push(function (err, data) {
+module.exports = (fun, args, ctx) => {
+  return new Promise((resolve, reject) => {
+    args.push((err, data) => {
       err && reject(err);
       resolve(data);
-    })
-    fun.apply(self, args);
+    });
+    fun.apply(ctx, args);
   });
 };
